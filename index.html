@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title>TypeScript HTML App</title>
+    <link rel="stylesheet" href="app.css" type="text/css" />
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.1/require.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <script>
+        var tester;
+        require(["dist/unitTests"], function(tw) {
+            tester = new tw.testWrapper();
+        });
+    </script>
+
+    <script type="text/javascript">
+        function doit() {
+            tester.RunAllTests();
+        };
+    </script>
+</head>
+
+<body>
+
+    <button onclick="doit()">Run All Unit Tests</button>
+    <div id="TestResults">
+        <table id="unitTests" style="width: 100%;">
+            <thead>
+                <tr>
+                    <th align="left">Result</th>
+                    <th align="left">Name</th>
+                    <th align="left">Duration</th>
+                    <th align="left" style="width:65%">Output</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</body>
+
+</html>
